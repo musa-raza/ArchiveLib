@@ -1,5 +1,5 @@
-require_relative 'searchable'
 require 'active_support/inflector'
+require_relative 'db_connection'
 require 'byebug'
 
 class AssocOptions
@@ -14,7 +14,7 @@ class AssocOptions
   end
 
   def table_name
-    model_class.table_name
+    self.model_class.table_name
   end
 end
 
@@ -69,22 +69,19 @@ module Associatable
     @assoc_options ||= {}
     @assoc_options
   end
-end
 
-module Associatable
-
-  def has_one_through(name, through_name, source_name)
+  def has_one_through(name, through:, source:)
 
     define_method(name) do
-      through_options = self.class.assoc_options[through_name]
-      source_options = through_options.model_class.assoc_options[source_name]
+      through_options = self.class.assoc_options[through]
+      source_options = through_options.model_class.assoc_options[source]
       through_table = through_options.table_name
       source_table = source_options.table_name
       through_foreign_key = source_options.foreign_key
       through_primary_key = through_options.primary_key
       source_primary_key = source_options.primary_key
       source_foreign_key = source_options.foreign_key
-      data = DBConnection.execute(<<-SQL, id)
+      data = ArchiveLib::DBConnection.execute(<<-SQL, id)
       SELECT
       #{source_table}.*
       FROM
@@ -98,9 +95,4 @@ module Associatable
       source_options.model_class.parse_all(data).first
     end
   end
-end
-
-
-class SQLObject
-  extend Associatable
 end
