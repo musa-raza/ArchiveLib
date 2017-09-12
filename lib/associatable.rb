@@ -1,6 +1,5 @@
 require 'active_support/inflector'
 require_relative 'db_connection'
-require 'byebug'
 
 class AssocOptions
   attr_accessor(

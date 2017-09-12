@@ -67,7 +67,6 @@ module ArchiveLib
     end
 
     def initialize(params = {})
-      # ...
       params.each do |k, v|
         raise "unknown attribute '#{k}'" unless self.class.columns.include?(k.to_sym)
         self.send("#{k}=", v)

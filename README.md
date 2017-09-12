@@ -16,20 +16,20 @@ With this app, you can create `belongs_to`, `has_many` or `has_one_through` asso
 
 Here is a list of methods available for interacting with the database.
 
- ### [Base](#base)
-* [`::all`](#all) : Returns array of all entries for given table.
-* [`::first`](#first) : Returns first entry from a table.
-* [`::last`](#last) : Returns last entry from the table.
-* [`::find`](#find) : Returns an entry for a given id from a table.
-* [`::new`](#new) : Creates a new entry for a table.
-* [`#save`](#save) : Creates or updates an entry for a table.
-* [`#update`](#update) : Updates an existing entry for a table.
-* [`#insert`](#insert) : Inserts a new entry into the table.
+ ### Base
+* `::all` : Returns array of all entries for given table.
+* `::first`: Returns first entry from a table.
+* `::last` : Returns last entry from the table.
+* `::find` : Returns an entry for a given id from a table.
+* `::new` : Creates a new entry for a table.
+* `#save` : Creates or updates an entry for a table.
+* `#update` : Updates an existing entry for a table.
+* `#insert` : Inserts a new entry into the table.
 
-### [Searchable](#searchable)
-* [`::where`](#where) : Returns an array of all the items that match the where clause in the query.
+### Searchable
+* `::where` : Returns an array of all the items that match the where clause in the query.
 
-### [Associatable](#associatbale)
-* [`::has_many`](#has_many): Returns an array of all the child associations.
-* [`::belongs_to`](#belongs_to): Returns an entry which has the parent association.
-* [`::has_one_through`](#has_one_through): Specifies a one to one relationship between two models, traversing through an intermediary model.
+### Associatable
+* `::has_many`: Returns an array of all the child associations.
+* `::belongs_to`: Returns an entry which has the parent association.
+* `::has_one_through`: Specifies a one to one relationship between two models, traversing through an intermediary model.
