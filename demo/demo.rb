@@ -1,6 +1,5 @@
 require_relative '../lib/base'
 require_relative '../lib/db_connection'
-require 'byebug'
 
 COMPUTERS_SQL_FILE = 'computers.sql'
 COMPUTERS_DB_FILE =  'computers.db'
