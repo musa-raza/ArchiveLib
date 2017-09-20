@@ -4,7 +4,7 @@ require_relative '../lib/db_connection'
 COMPUTERS_SQL_FILE = 'computers.sql'
 COMPUTERS_DB_FILE =  'computers.db'
 
-`rm '#{COMPUTERS_DB_FILE}'`
+# `rm '#{COMPUTERS_DB_FILE}'`
 `cat '#{COMPUTERS_SQL_FILE}' | sqlite3 '#{COMPUTERS_DB_FILE}'`
 
 ArchiveLib::DBConnection.open(COMPUTERS_DB_FILE)
